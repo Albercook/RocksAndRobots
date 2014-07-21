@@ -1,4 +1,4 @@
-RocksAndRobots
+Rocks And Robots
 ==============
 
-Scripts and Info concerning Rocks and Robots 
+Scripts and Info concerning Rocks and Robots
