@@ -25,9 +25,9 @@ long VCCmV = 3500; //Declare variable: Initial value set 3500 as close to fully 
 int rudder = 0;  //Declare variable: 
 int trim = 18;//#Set by user: smaller is CCW. make sure both props spin freely. 
 int yaw_rate = 0; 
-int AltGoal = 100; //#Set by user: roughly in cm to determine free flight height off ground 
+int TargetAltitude = 100; //#Set by user: roughly in cm to determine free flight height off ground 
 int LastAlt = 100;
-int AltErr = -18; //Declared: Difference between current altimeter_val and AltGoal
+int AltErr = -18; //Declared: Difference between current altimeter_val and TargetAltitude
 int scan = 0;  //Declared: Used for RH_LH Scan of Front Sensor
 int scanDir = 1; //Declared: Used for RH_LH Scan of Front Sensor
 int scan2 = 0; //Declared: Used for RH_LH Scan of Front Sensor
@@ -77,7 +77,7 @@ void loop()  {
     int front_sensor_val = 23000/(55+analogRead(FRONT_SENSOR_PIN));
     int gyro_sensor_val = analogRead(GYRO_SENSOR_PIN);
     
-     AltErr = (2*(AltGoal - altimeter_val) + 15*(LastAlt - altimeter_val));
+     AltErr = (2*(TargetAltitude - altimeter_val) + 15*(LastAlt - altimeter_val));
     
        if (AltErr > 100){       
            AltErr = 100;}
